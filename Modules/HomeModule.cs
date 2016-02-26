@@ -28,7 +28,7 @@ namespace HairSalon
           newClient.Save();
         }
 
-      
+
       return View["stylist.cshtml", SelectedStylist];
     };
   //
@@ -54,15 +54,15 @@ namespace HairSalon
   //     return View["index.cshtml", AllCuisines ];
   //   };
   //
-  //   Delete["/restaurant/{id}/delete"] = parameters => {
-  //     Restaurant SelectedRestaurant = Restaurant.Find(parameters.id);
-  //     SelectedRestaurant.Delete();
-  //     List<Cuisine> AllCuisines = Cuisine.GetAll();
-  //     return View["index.cshtml", AllCuisines ];
-  //   };
+    Delete["/deleteStylist/{id}"] = parameters => {
+      Stylist SelectedStylist = Stylist.Find(parameters.id);
+      SelectedStylist.Delete();
+      List<Stylist> AllStylists = Stylist.GetAll();
+      return View["index.cshtml", AllStylists ];
+    };
   //
   //   Post["/search_results"] = _ => {
-  //   Restaurant foundRestaurant = Restaurant.FindName(Request.Form["search"]);
+  //   Stylist foundRestaurant = Restaurant.FindName(Request.Form["search"]);
   //   return View["search_results.cshtml", foundRestaurant];
   // };
   //

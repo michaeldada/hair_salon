@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halo Hair Salon</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+  </head>
 <h1>@Model.GetDescription()</h1>
 <ul>
 @{
@@ -20,4 +27,11 @@
 
           <button type="submit">Add</button>
         </form>
+        <br>    <br>    <br>    <br>    <br>
+<form action="/deleteStylist/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="btn btn-danger" type="submit">Remove this stylist and all associated clients</button>
+</form>
+
+<br><br>
 <a href="/">Home</a>
