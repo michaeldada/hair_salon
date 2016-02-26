@@ -1,6 +1,6 @@
 # _Hair Salon_
 
-#### _An App for Managing Hair Stylist and their Clients, 2/26/2016_
+#### _An App for Managing Hair Stylists and their Clients, 2/26/2016_
 
 #### By _**Michael Dada**_
 
