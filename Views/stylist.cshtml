@@ -6,40 +6,33 @@
     <link rel='stylesheet' href='Content/css/styles.css'>
   </head>
   <div class="container">
-
-
-<h1>@Model.GetDescription()</h1>
-<ul>
-@{
-  if(Model!= null)
-  {
-    foreach (var client in @Model.GetClients())
-    {
-     <li>
-    @client.GetDescription() | <a href="/editClient/@client.GetId()">Edit</a> | <form action="/deleteClient/@client.GetId()" method="post"><input type="hidden" name="_method" value="DELETE"><button class="btn btn-danger" type="submit">Delete Client</button></form>
-     </li>
-    }
-  }
-}
-</ul>
-<h3>Add a new Client</h3>
-        <form method="post" action="/addClient/@Model.GetId()">
-          Client name:
-          <input type="text" name="client-name">
-
-
-          <button type="submit">Add</button>
-        </form>
-        <br>    <br>    <br>    <br>    <br>
-
-      <a href="/editStylist/@Model.GetId()">Edit this stylist's information</a>
-
-
-<form action="/deleteStylist/@Model.GetId()" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button class="btn btn-danger" type="submit">Remove this stylist and all associated clients</button>
-</form>
-
-<br><br>
-<a href="/">Home</a>
+    <h1>@Model.GetDescription()</h1>
+    <ul>
+      @{
+        if(Model!= null)
+        {
+          foreach (var client in @Model.GetClients())
+          {
+            <li>
+              @client.GetDescription() | <a href="/editClient/@client.GetId()">Edit</a> |
+              <form action="/deleteClient/@client.GetId()" method="post"><input type="hidden" name="_method" value="DELETE"><button class="btn btn-danger" type="submit">Delete Client</button></form>
+            </li>
+          }
+        }
+      }
+    </ul>
+    <h3>Add a new Client</h3>
+    <form method="post" action="/addClient/@Model.GetId()">
+      Client name:
+      <input type="text" name="client-name">
+      <button type="submit">Add</button>
+    </form>
+    <br>    <br>    <br>    <br>    <br>
+    <a href="/editStylist/@Model.GetId()">Edit this stylist's information</a>
+    <form action="/deleteStylist/@Model.GetId()" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger" type="submit">Remove this stylist and all associated clients</button>
+    </form>
+    <br><br>
+    <a href="/">Home</a>
   </div>
