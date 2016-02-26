@@ -31,6 +31,10 @@
           <button type="submit">Add</button>
         </form>
         <br>    <br>    <br>    <br>    <br>
+
+      <a href="/editStylist/@Model.GetId()">Edit this stylist's information</a>
+
+
 <form action="/deleteStylist/@Model.GetId()" method="post">
   <input type="hidden" name="_method" value="DELETE">
   <button class="btn btn-danger" type="submit">Remove this stylist and all associated clients</button>
