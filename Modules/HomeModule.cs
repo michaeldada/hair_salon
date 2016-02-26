@@ -19,27 +19,28 @@ namespace HairSalon
         return View["index.cshtml", AllStylists];
       };
   //
-  //   Post["/addRestaurant"] = _ => {
-  //     Restaurant newRestaurant = new Restaurant(Request.Form["restaurant-name"], Request.Form["restaurant-cuisine"], Request.Form["restaurant-address"], Request.Form["restaurant-phone"]);
+    Post["/addClient/{id}"] = parameters => {
+      Stylist SelectedStylist = Stylist.Find(parameters.id);
+      Client newClient = new Client(Request.Form["client-name"], SelectedStylist.GetId());
+
+      if ((Client.FindName(Request.Form["client-name"])).GetId() == 0)
+        {
+          newClient.Save();
+        }
+
+      
+      return View["stylist.cshtml", SelectedStylist];
+    };
   //
-  //     if ((Restaurant.FindName(Request.Form["restaurant-name"])).GetId() == 0)
-  //       {
-  //         newRestaurant.Save();
-  //       }
-  //
-  //     List<Cuisine> AllCuisines = Cuisine.GetAll();
-  //     return View["index.cshtml", AllCuisines];
-  //   };
-  //
-  //   Get["/restaurant/{id}"] = parameters => {
-  //     Restaurant SelectedRestaurant = Restaurant.Find(parameters.id);
+  //   Get["/client/{id}"] = parameters => {
+  //     Client SelectedRestaurant = Restaurant.Find(parameters.id);
   //     return View["restaurant.cshtml", SelectedRestaurant];
   //   };
   //
-  //   Get["/cuisine/{id}"] = parameters => {
-  //     Cuisine SelectedCuisine = Cuisine.Find(parameters.id);
-  //     return View["cuisine.cshtml", SelectedCuisine];
-  //   };
+    Get["/stylist/{id}"] = parameters => {
+      Stylist SelectedStylist = Stylist.Find(parameters.id);
+      return View["stylist.cshtml", SelectedStylist];
+    };
   //
   //   Get["/restaurant/{id}/edit"] = parameters => {
   //     Restaurant SelectedRestaurant = Restaurant.Find(parameters.id);
