@@ -8,16 +8,16 @@ namespace HairSalon
   {
     public HomeModule()
     {
-      // Get["/"] = _ => {
-  //       List<Cuisine> AllCuisines = Cuisine.GetAll();
-  //       return View["index.cshtml", AllCuisines];
-  //     };
-  //     Post["/addCuisine"] = _ => {
-  //       Cuisine newCuisine = new Cuisine(Request.Form["cuisine-name"]);
-  //       newCuisine.Save();
-  //       List<Cuisine> AllCuisines = Cuisine.GetAll();
-  //       return View["index.cshtml", AllCuisines];
-  //     };
+      Get["/"] = _ => {
+        List<Stylist> AllStylists = Stylist.GetAll();
+        return View["index.cshtml", AllStylists];
+      };
+      Post["/addStylist"] = _ => {
+        Stylist newStylist = new Stylist(Request.Form["stylist-name"]);
+        newStylist.Save();
+        List<Stylist> AllStylists = Stylist.GetAll();
+        return View["index.cshtml", AllStylists];
+      };
   //
   //   Post["/addRestaurant"] = _ => {
   //     Restaurant newRestaurant = new Restaurant(Request.Form["restaurant-name"], Request.Form["restaurant-cuisine"], Request.Form["restaurant-address"], Request.Form["restaurant-phone"]);

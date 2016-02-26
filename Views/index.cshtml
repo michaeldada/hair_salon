@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halo Hair Salon</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+  </head>
+  <body>
+
+
+
+    <div class="jumbotron">
+      <h1>Halo Hair Salon</h1>
+      <p>We Can See Your Halo..</p>
+    </div>
+    <div class="container">
+
+      <h2>Our Stylists:</h2>
+
+      @{
+        if (Model != null)
+        {
+          @foreach (var stylist in Model)
+         {
+          <button class ="btn btn-default">
+          <a href="/stylist/@stylist.GetId()">@stylist.GetDescription()</a>
+        </button>
+
+        }
+       }
+      }
+
+
+        <h3>Add a new stylist</h3>
+        <form method="post" action="/addStylist">
+          Stylist name:
+          <input type="text" name="stylist-name">
+          <button type="submit">Add</button>
+        </form>
+
+
+    </div>
+  </body>
+</html>
