@@ -5,6 +5,9 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet' href='Content/css/styles.css'>
   </head>
+  <div class="container">
+
+
 <h1>@Model.GetDescription()</h1>
 <ul>
 @{
@@ -13,7 +16,7 @@
     foreach (var client in @Model.GetClients())
     {
      <li>
-    @client.GetDescription() | <a href="/editClient/@client.GetId()">Edit</a>
+    @client.GetDescription() | <a href="/editClient/@client.GetId()">Edit</a> | <form action="/deleteClient/@client.GetId()" method="post"><input type="hidden" name="_method" value="DELETE"><button class="btn btn-danger" type="submit">Delete Client</button></form>
      </li>
     }
   }
@@ -35,3 +38,4 @@
 
 <br><br>
 <a href="/">Home</a>
+  </div>
