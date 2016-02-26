@@ -13,7 +13,7 @@
     foreach (var client in @Model.GetClients())
     {
      <li>
-    @client.GetDescription()
+    @client.GetDescription() | <a href="/editClient/@client.GetId()">Edit</a>
      </li>
     }
   }
